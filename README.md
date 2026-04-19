@@ -52,3 +52,15 @@ Jika kamu menerapkan modular pada project, Anda dapat memanfaatkan berkas `test.
     Proses ini akan men-*generate* berkas `lcov.info` dan folder `coverage` terkait dengan laporan coverage.
 4. Tunggu proses testing selesai hingga muncul web terkait laporan coverage.
 
+---
+
+## Firebase Screenshots
+
+Sesuai dengan kriteria submission, lampirkan screenshot Firebase Analytics dan Crashlytics di bawah ini:
+
+### 1. Firebase Analytics
+![Firebase Analytics](screenshots/firebase_analytics.png)
+
+### 2. Firebase Crashlytics
+![Firebase Crashlytics](screenshots/firebase_crashlytics.png)
+

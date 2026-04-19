@@ -13,6 +13,7 @@ import 'package:movie/presentation/bloc/now_playing_movies_bloc.dart';
 import 'package:movie/presentation/bloc/popular_movies_bloc.dart';
 import 'package:movie/presentation/bloc/top_rated_movies_bloc.dart';
 import 'package:flutter/material.dart';
+// import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 
 class HomeMoviePage extends StatefulWidget {
@@ -82,6 +83,14 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
       appBar: AppBar(
         title: Text('Ditonton'),
         actions: [
+          /*
+          IconButton(
+            onPressed: () {
+              FirebaseCrashlytics.instance.crash();
+            },
+            icon: Icon(Icons.bug_report),
+          ),
+          */
           IconButton(
             onPressed: () {
               Navigator.pushNamed(context, SearchPage.ROUTE_NAME);

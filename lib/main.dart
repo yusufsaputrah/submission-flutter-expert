@@ -39,16 +39,50 @@ import 'package:flutter/material.dart';
 import 'package:ditonton/injection.dart' as di;
 import 'package:core/common/ssl_pinning.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
+
+bool isFirebaseInitialized = false;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  debugPrint('Initializing Firebase...');
   try {
     await Firebase.initializeApp();
+    
+    // Pass all uncaught "fatal" errors from the framework to Crashlytics
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+
+    // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+    PlatformDispatcher.instance.onError = (error, stack) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      return true;
+    };
+    isFirebaseInitialized = true;
+    debugPrint('Firebase initialized successfully.');
   } catch (e) {
-    debugPrint('Firebase init failed: $e');
+    debugPrint('Firebase initialization failed: $e');
   }
-  await SSLPinning.init();
-  di.init();
+
+  debugPrint('Initializing SSL Pinning...');
+  try {
+    await SSLPinning.init();
+    debugPrint('SSL Pinning initialized.');
+  } catch (e) {
+    debugPrint('SSL Pinning initialization failed: $e');
+  }
+
+  debugPrint('Initializing Dependency Injection...');
+  try {
+    di.init();
+    debugPrint('DI initialized.');
+  } catch (e) {
+    debugPrint('DI initialization failed: $e');
+  }
+
+  debugPrint('Running app...');
   runApp(MyApp());
 }
 
@@ -83,7 +117,10 @@ class MyApp extends StatelessWidget {
           drawerTheme: kDrawerTheme,
         ),
         home: HomeMoviePage(),
-        navigatorObservers: [routeObserver],
+        navigatorObservers: [
+          routeObserver,
+          if (isFirebaseInitialized) FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+        ],
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
             case '/home':
