@@ -17,8 +17,7 @@ class _TopRatedTvsPageState extends State<TopRatedTvsPage> {
   void initState() {
     super.initState();
     Future.microtask(() =>
-        Provider.of<TopRatedTvsNotifier>(context, listen: false)
-            ..fetchTopRatedTvs());
+        context.read<TopRatedTvsBloc>().add(FetchTopRatedTvs()));
   }
 
   @override

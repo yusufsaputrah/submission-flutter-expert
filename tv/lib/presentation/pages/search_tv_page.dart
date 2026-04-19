@@ -22,8 +22,7 @@ class SearchTvPage extends StatelessWidget {
           children: [
             TextField(
               onSubmitted: (query) {
-                Provider.of<TvSearchNotifier>(context, listen: false)
-                    .fetchTvSearch(query);
+                context.read<SearchTvsBloc>().add(FetchSearchTvs(query));
               },
               decoration: InputDecoration(
                 hintText: 'Search title',

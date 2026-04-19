@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/common/constants.dart';
 import 'package:tv/domain/entities/tv.dart';
-import 'package:about/presentation/pages/about_page.dart';
+
 import 'package:tv/presentation/pages/popular_tvs_page.dart';
 import 'package:tv/presentation/pages/search_tv_page.dart';
 import 'package:tv/presentation/pages/top_rated_tvs_page.dart';
 import 'package:tv/presentation/pages/tv_detail_page.dart';
-import 'package:movie/presentation/pages/watchlist_page.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv/presentation/bloc/now_playing_tvs_bloc.dart';
 import 'package:tv/presentation/bloc/popular_tvs_bloc.dart';
@@ -26,10 +26,11 @@ class _HomeTvPageState extends State<HomeTvPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() => Provider.of<TvListNotifier>(context, listen: false)
-      ..fetchNowPlayingTvs()
-      ..fetchPopularTvs()
-      ..fetchTopRatedTvs());
+    Future.microtask(() {
+      context.read<NowPlayingTvsBloc>().add(FetchNowPlayingTvs());
+      context.read<PopularTvsBloc>().add(FetchPopularTvs());
+      context.read<TopRatedTvsBloc>().add(FetchTopRatedTvs());
+    });
   }
 
   @override
@@ -67,12 +68,12 @@ class _HomeTvPageState extends State<HomeTvPage> {
               leading: Icon(Icons.save_alt),
               title: Text('Watchlist'),
               onTap: () {
-                Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
+                Navigator.pushNamed(context, '/watchlist');
               },
             ),
             ListTile(
               onTap: () {
-                Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
+                Navigator.pushNamed(context, '/about');
               },
               leading: Icon(Icons.info_outline),
               title: Text('About'),

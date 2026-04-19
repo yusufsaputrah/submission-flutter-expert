@@ -1,13 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/common/constants.dart';
 import 'package:movie/domain/entities/movie.dart';
-import 'package:about/presentation/pages/about_page.dart';
+
 import 'package:movie/presentation/pages/movie_detail_page.dart';
 import 'package:movie/presentation/pages/popular_movies_page.dart';
 import 'package:movie/presentation/pages/search_page.dart';
 import 'package:movie/presentation/pages/top_rated_movies_page.dart';
-import 'package:tv/presentation/pages/home_tv_page.dart';
-import 'package:movie/presentation/pages/watchlist_page.dart';
+
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/bloc/now_playing_movies_bloc.dart';
 import 'package:movie/presentation/bloc/popular_movies_bloc.dart';
@@ -60,19 +60,19 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               leading: Icon(Icons.tv),
               title: Text('TV Series'),
               onTap: () {
-                Navigator.pushReplacementNamed(context, HomeTvPage.ROUTE_NAME);
+                Navigator.pushReplacementNamed(context, '/home-tv');
               },
             ),
             ListTile(
               leading: Icon(Icons.save_alt),
               title: Text('Watchlist'),
               onTap: () {
-                Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
+                Navigator.pushNamed(context, '/watchlist');
               },
             ),
             ListTile(
               onTap: () {
-                Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
+                Navigator.pushNamed(context, '/about');
               },
               leading: Icon(Icons.info_outline),
               title: Text('About'),

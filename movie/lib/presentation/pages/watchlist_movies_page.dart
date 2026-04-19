@@ -19,8 +19,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
   void initState() {
     super.initState();
     Future.microtask(() =>
-        Provider.of<WatchlistMovieNotifier>(context, listen: false)
-            .fetchWatchlistMovies());
+        context.read<WatchlistMovieBloc>().add(FetchWatchlistMovies()));
   }
 
   @override
@@ -30,32 +29,36 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
   }
 
   void didPopNext() {
-    Provider.of<WatchlistMovieNotifier>(context, listen: false)
-        .fetchWatchlistMovies();
+    context.read<WatchlistMovieBloc>().add(FetchWatchlistMovies());
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Consumer<WatchlistMovieNotifier>(
-        builder: (context, data, child) {
-          if (data.watchlistState == RequestState.Loading) {
+      child: BlocBuilder<WatchlistMovieBloc, WatchlistMovieState>(
+        builder: (context, state) {
+          if (state is WatchlistMovieLoading) {
             return Center(
               child: CircularProgressIndicator(),
             );
-          } else if (data.watchlistState == RequestState.Loaded) {
+          } else if (state is WatchlistMovieHasData) {
             return ListView.builder(
               itemBuilder: (context, index) {
-                final movie = data.watchlistMovies[index];
+                final movie = state.result[index];
                 return MovieCard(movie);
               },
-              itemCount: data.watchlistMovies.length,
+              itemCount: state.result.length,
+            );
+          } else if (state is WatchlistMovieError) {
+            return Center(
+              key: Key('error_message'),
+              child: Text(state.message),
             );
           } else {
             return Center(
               key: Key('error_message'),
-              child: Text(data.message),
+              child: Text('Empty'),
             );
           }
         },

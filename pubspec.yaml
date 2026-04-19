@@ -22,7 +22,7 @@ dependencies:
   about:
     path: about
   http: ^1.6.0
-  provider: ^6.1.2
+
   dartz: ^0.10.1
   equatable: ^2.0.8
   google_fonts: ^8.0.2

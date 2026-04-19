@@ -89,6 +89,7 @@ final testTvDetail = TvDetail(
   name: 'name',
   voteAverage: 1,
   voteCount: 1,
+  seasons: [],
 );
 
 final testWatchlistTv = Tv.watchlist(

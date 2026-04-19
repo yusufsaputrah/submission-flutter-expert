@@ -14,7 +14,7 @@ import 'package:tv/presentation/pages/search_tv_page.dart';
 import 'package:tv/presentation/pages/top_rated_tvs_page.dart';
 import 'package:tv/presentation/pages/tv_detail_page.dart';
 import 'package:tv/presentation/pages/watchlist_tvs_page.dart';
-import 'package:movie/presentation/pages/watchlist_page.dart';
+import 'presentation/pages/watchlist_page.dart';
 
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,14 +37,18 @@ import 'package:tv/presentation/bloc/watchlist_tv_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
+
 import 'package:ditonton/injection.dart' as di;
 import 'package:core/common/ssl_pinning.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  try {
+    await Firebase.initializeApp();
+  } catch (e) {
+    debugPrint('Firebase init failed: $e');
+  }
   await SSLPinning.init();
   di.init();
   runApp(MyApp());
