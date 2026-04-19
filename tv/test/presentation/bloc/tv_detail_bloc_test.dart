@@ -4,7 +4,6 @@ import 'package:core/common/failure.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:tv/domain/entities/tv.dart';
 import 'package:tv/domain/entities/tv_detail.dart';
 
 import 'package:tv/domain/usecases/get_tv_detail.dart';

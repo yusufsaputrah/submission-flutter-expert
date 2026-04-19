@@ -4,7 +4,6 @@ import 'package:core/common/failure.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:movie/domain/entities/movie.dart';
 
 import 'package:movie/domain/entities/movie_detail.dart';
 import 'package:movie/domain/usecases/get_movie_detail.dart';

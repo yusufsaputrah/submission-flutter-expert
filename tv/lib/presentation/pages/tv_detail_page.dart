@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/common/constants.dart';
 import 'package:core/domain/entities/genre.dart';
-import 'package:tv/domain/entities/tv.dart';
 import 'package:tv/domain/entities/tv_detail.dart';
 import 'package:tv/presentation/bloc/tv_detail_bloc.dart';
 import 'package:tv/presentation/bloc/tv_recommendations_bloc.dart';
