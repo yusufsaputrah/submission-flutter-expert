@@ -22,9 +22,12 @@ void main() {
           builder: (context) {
             return ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => AboutPage()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutPage()),
+                );
               },
-              child: Text('Go to About'),
+              child: const Text('Go to About'),
             );
           },
         ),

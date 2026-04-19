@@ -16,7 +16,7 @@ void main() {
   });
 
   final tTvs = <Tv>[];
-  final tQuery = 'spiderman';
+  const tQuery = 'spiderman';
 
   test('should get list of tvs from the repository', () async {
     // arrange
