@@ -8,11 +8,13 @@ import 'package:flutter/material.dart';
 class SearchPage extends StatelessWidget {
   static const ROUTE_NAME = '/search';
 
+  const SearchPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search'),
+        title: const Text('Search'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -23,14 +25,14 @@ class SearchPage extends StatelessWidget {
               onSubmitted: (query) {
                 context.read<SearchMoviesBloc>().add(FetchSearchMovies(query));
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Search title',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
               textInputAction: TextInputAction.search,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               'Search Result',
               style: kHeading6,
@@ -38,7 +40,7 @@ class SearchPage extends StatelessWidget {
             BlocBuilder<SearchMoviesBloc, SearchMoviesState>(
               builder: (context, state) {
                 if (state is SearchMoviesLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is SearchMoviesHasData) {

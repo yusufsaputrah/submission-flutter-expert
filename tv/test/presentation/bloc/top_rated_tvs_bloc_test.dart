@@ -22,7 +22,7 @@ void main() {
     bloc = TopRatedTvsBloc(mockGetTopRatedTvs);
   });
 
-  final tTv = Tv(
+  const tTv = Tv(
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
     id: 1,
@@ -62,13 +62,13 @@ void main() {
     'Should emit [Loading, Error] when get data is unsuccessful',
     build: () {
       when(mockGetTopRatedTvs.execute())
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return bloc;
     },
     act: (bloc) => bloc.add(FetchTopRatedTvs()),
     expect: () => [
       TopRatedTvsLoading(),
-      TopRatedTvsError('Server Failure'),
+      const TopRatedTvsError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetTopRatedTvs.execute());

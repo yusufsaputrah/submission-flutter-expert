@@ -22,7 +22,7 @@ void main() {
     bloc = SearchTvsBloc(mockSearchTvs);
   });
 
-  final tTv = Tv(
+  const tTv = Tv(
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
     id: 1,
@@ -48,7 +48,7 @@ void main() {
           .thenAnswer((_) async => Right(tData));
       return bloc;
     },
-    act: (bloc) => bloc.add(FetchSearchTvs('spiderman')),
+    act: (bloc) => bloc.add(const FetchSearchTvs('spiderman')),
     expect: () => [
       SearchTvsLoading(),
       SearchTvsHasData(tData),
@@ -62,13 +62,13 @@ void main() {
     'Should emit [Loading, Error] when get data is unsuccessful',
     build: () {
       when(mockSearchTvs.execute('spiderman'))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return bloc;
     },
-    act: (bloc) => bloc.add(FetchSearchTvs('spiderman')),
+    act: (bloc) => bloc.add(const FetchSearchTvs('spiderman')),
     expect: () => [
       SearchTvsLoading(),
-      SearchTvsError('Server Failure'),
+      const SearchTvsError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockSearchTvs.execute('spiderman'));

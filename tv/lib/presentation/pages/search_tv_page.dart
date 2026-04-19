@@ -8,11 +8,13 @@ import 'package:flutter/material.dart';
 class SearchTvPage extends StatelessWidget {
   static const ROUTE_NAME = '/search-tv';
 
+  const SearchTvPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search TV Series'),
+        title: const Text('Search TV Series'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -23,14 +25,14 @@ class SearchTvPage extends StatelessWidget {
               onSubmitted: (query) {
                 context.read<SearchTvsBloc>().add(FetchSearchTvs(query));
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Search title',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
               textInputAction: TextInputAction.search,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               'Search Result',
               style: kHeading6,
@@ -38,7 +40,7 @@ class SearchTvPage extends StatelessWidget {
             BlocBuilder<SearchTvsBloc, SearchTvsState>(
               builder: (context, state) {
                 if (state is SearchTvsLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is SearchTvsHasData) {

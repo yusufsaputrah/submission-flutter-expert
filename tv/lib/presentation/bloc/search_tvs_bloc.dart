@@ -11,7 +11,7 @@ abstract class SearchTvsEvent extends Equatable {
 }
 class FetchSearchTvs extends SearchTvsEvent {
   final String query;
-  FetchSearchTvs(this.query);
+  const FetchSearchTvs(this.query);
   @override
   List<Object> get props => [query];
 }
@@ -26,13 +26,13 @@ class SearchTvsEmpty extends SearchTvsState {}
 class SearchTvsLoading extends SearchTvsState {}
 class SearchTvsError extends SearchTvsState {
   final String message;
-  SearchTvsError(this.message);
+  const SearchTvsError(this.message);
   @override
   List<Object> get props => [message];
 }
 class SearchTvsHasData extends SearchTvsState {
   final List<Tv> result;
-  SearchTvsHasData(this.result);
+  const SearchTvsHasData(this.result);
   @override
   List<Object> get props => [result];
 }

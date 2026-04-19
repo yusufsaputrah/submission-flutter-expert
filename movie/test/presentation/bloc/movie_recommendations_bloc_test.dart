@@ -22,7 +22,7 @@ void main() {
     bloc = MovieRecommendationsBloc(mockGetMovieRecommendations);
   });
 
-  final tMovie = Movie(
+  const tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -50,7 +50,7 @@ void main() {
           .thenAnswer((_) async => Right(tData));
       return bloc;
     },
-    act: (bloc) => bloc.add(FetchMovieRecommendations(1)),
+    act: (bloc) => bloc.add(const FetchMovieRecommendations(1)),
     expect: () => [
       MovieRecommendationsLoading(),
       MovieRecommendationsHasData(tData),
@@ -64,13 +64,13 @@ void main() {
     'Should emit [Loading, Error] when get data is unsuccessful',
     build: () {
       when(mockGetMovieRecommendations.execute(1))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return bloc;
     },
-    act: (bloc) => bloc.add(FetchMovieRecommendations(1)),
+    act: (bloc) => bloc.add(const FetchMovieRecommendations(1)),
     expect: () => [
       MovieRecommendationsLoading(),
-      MovieRecommendationsError('Server Failure'),
+      const MovieRecommendationsError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetMovieRecommendations.execute(1));

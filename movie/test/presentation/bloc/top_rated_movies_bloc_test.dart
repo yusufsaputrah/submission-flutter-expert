@@ -22,7 +22,7 @@ void main() {
     bloc = TopRatedMoviesBloc(mockGetTopRatedMovies);
   });
 
-  final tMovie = Movie(
+  const tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -64,13 +64,13 @@ void main() {
     'Should emit [Loading, Error] when get data is unsuccessful',
     build: () {
       when(mockGetTopRatedMovies.execute())
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return bloc;
     },
     act: (bloc) => bloc.add(FetchTopRatedMovies()),
     expect: () => [
       TopRatedMoviesLoading(),
-      TopRatedMoviesError('Server Failure'),
+      const TopRatedMoviesError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetTopRatedMovies.execute());

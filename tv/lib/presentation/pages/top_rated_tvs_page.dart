@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 class TopRatedTvsPage extends StatefulWidget {
   static const ROUTE_NAME = '/top-rated-tv';
 
+  const TopRatedTvsPage({super.key});
+
   @override
   _TopRatedTvsPageState createState() => _TopRatedTvsPageState();
 }
@@ -23,14 +25,14 @@ class _TopRatedTvsPageState extends State<TopRatedTvsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Top Rated TV Series'),
+        title: const Text('Top Rated TV Series'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: BlocBuilder<TopRatedTvsBloc, TopRatedTvsState>(
           builder: (context, state) {
             if (state is TopRatedTvsLoading) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else if (state is TopRatedTvsHasData) {
@@ -43,7 +45,7 @@ class _TopRatedTvsPageState extends State<TopRatedTvsPage> {
               );
             } else if (state is TopRatedTvsError) {
               return Center(
-                key: Key('error_message'),
+                key: const Key('error_message'),
                 child: Text(state.message),
               );
             } else {

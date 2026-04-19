@@ -16,7 +16,7 @@ void main() {
     mockBloc = MockSearchTvsBloc();
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return BlocProvider<SearchTvsBloc>.value(
       value: mockBloc,
       child: MaterialApp(
@@ -25,7 +25,7 @@ void main() {
     );
   }
 
-  final tTv = Tv(
+  const tTv = Tv(
     backdropPath: '/muth43uS2uzv03nmbQYQZ2olmG.jpg',
     genreIds: [14, 28],
     id: 531219,
@@ -43,7 +43,7 @@ void main() {
   testWidgets('Page should display center progress indicator when loading', (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(SearchTvsLoading());
 
-    await tester.pumpWidget(_makeTestableWidget(SearchTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchTvPage()));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
@@ -51,15 +51,15 @@ void main() {
   testWidgets('Page should display ListView when data is loaded', (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(SearchTvsHasData(tTvList));
 
-    await tester.pumpWidget(_makeTestableWidget(SearchTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchTvPage()));
 
     expect(find.byType(ListView), findsOneWidget);
   });
 
   testWidgets('Page should display error message when error', (WidgetTester tester) async {
-    when(() => mockBloc.state).thenReturn(SearchTvsError('Error message'));
+    when(() => mockBloc.state).thenReturn(const SearchTvsError('Error message'));
 
-    await tester.pumpWidget(_makeTestableWidget(SearchTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchTvPage()));
 
     expect(find.text('Error message'), findsOneWidget);
   });
@@ -67,7 +67,7 @@ void main() {
   testWidgets('Page should display empty container when state is empty', (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(SearchTvsEmpty());
 
-    await tester.pumpWidget(_makeTestableWidget(SearchTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchTvPage()));
 
     expect(find.byType(Container), findsWidgets);
   });

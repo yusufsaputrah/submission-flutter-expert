@@ -31,7 +31,7 @@ void main() {
     mockWatchlistTvBloc = MockWatchlistTvBloc();
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return MultiBlocProvider(
       providers: [
         BlocProvider<TvDetailBloc>.value(value: mockTvDetailBloc),
@@ -49,7 +49,7 @@ void main() {
     when(() => mockTvRecommendationsBloc.state).thenReturn(TvRecommendationsLoading());
     when(() => mockWatchlistTvBloc.state).thenReturn(WatchlistTvEmpty());
 
-    await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+    await tester.pumpWidget(makeTestableWidget(const TvDetailPage(id: 1)));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });

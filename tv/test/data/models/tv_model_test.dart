@@ -3,7 +3,7 @@ import 'package:tv/domain/entities/tv.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final tTvModel = TvModel(
+  const tTvModel = TvModel(
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
     id: 1,
@@ -17,7 +17,7 @@ void main() {
     voteCount: 1,
   );
 
-  final tTv = Tv(
+  const tTv = Tv(
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
     id: 1,

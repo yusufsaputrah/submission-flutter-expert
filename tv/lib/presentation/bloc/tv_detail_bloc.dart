@@ -11,7 +11,7 @@ abstract class TvDetailEvent extends Equatable {
 }
 class FetchTvDetail extends TvDetailEvent {
   final int id;
-  FetchTvDetail(this.id);
+  const FetchTvDetail(this.id);
   @override
   List<Object> get props => [id];
 }
@@ -26,13 +26,13 @@ class TvDetailEmpty extends TvDetailState {}
 class TvDetailLoading extends TvDetailState {}
 class TvDetailError extends TvDetailState {
   final String message;
-  TvDetailError(this.message);
+  const TvDetailError(this.message);
   @override
   List<Object> get props => [message];
 }
 class TvDetailHasData extends TvDetailState {
   final TvDetail result;
-  TvDetailHasData(this.result);
+  const TvDetailHasData(this.result);
   @override
   List<Object> get props => [result];
 }

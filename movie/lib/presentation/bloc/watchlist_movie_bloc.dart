@@ -17,21 +17,21 @@ class FetchWatchlistMovies extends WatchlistMovieEvent {}
 
 class LoadWatchlistMovieStatus extends WatchlistMovieEvent {
   final int id;
-  LoadWatchlistMovieStatus(this.id);
+  const LoadWatchlistMovieStatus(this.id);
   @override
   List<Object> get props => [id];
 }
 
 class AddMovieToWatchlist extends WatchlistMovieEvent {
   final MovieDetail movie;
-  AddMovieToWatchlist(this.movie);
+  const AddMovieToWatchlist(this.movie);
   @override
   List<Object> get props => [movie];
 }
 
 class RemoveMovieFromWatchlist extends WatchlistMovieEvent {
   final MovieDetail movie;
-  RemoveMovieFromWatchlist(this.movie);
+  const RemoveMovieFromWatchlist(this.movie);
   @override
   List<Object> get props => [movie];
 }
@@ -47,28 +47,28 @@ class WatchlistMovieLoading extends WatchlistMovieState {}
 
 class WatchlistMovieError extends WatchlistMovieState {
   final String message;
-  WatchlistMovieError(this.message);
+  const WatchlistMovieError(this.message);
   @override
   List<Object> get props => [message];
 }
 
 class WatchlistMovieHasData extends WatchlistMovieState {
   final List<Movie> result;
-  WatchlistMovieHasData(this.result);
+  const WatchlistMovieHasData(this.result);
   @override
   List<Object> get props => [result];
 }
 
 class WatchlistMovieStatusLoaded extends WatchlistMovieState {
   final bool isAdded;
-  WatchlistMovieStatusLoaded(this.isAdded);
+  const WatchlistMovieStatusLoaded(this.isAdded);
   @override
   List<Object> get props => [isAdded];
 }
 
 class WatchlistMovieMessage extends WatchlistMovieState {
   final String message;
-  WatchlistMovieMessage(this.message);
+  const WatchlistMovieMessage(this.message);
   @override
   List<Object> get props => [message];
 }

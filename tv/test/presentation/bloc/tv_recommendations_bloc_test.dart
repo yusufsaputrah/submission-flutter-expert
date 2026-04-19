@@ -22,7 +22,7 @@ void main() {
     bloc = TvRecommendationsBloc(mockGetTvRecommendations);
   });
 
-  final tTv = Tv(
+  const tTv = Tv(
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
     id: 1,
@@ -48,7 +48,7 @@ void main() {
           .thenAnswer((_) async => Right(tData));
       return bloc;
     },
-    act: (bloc) => bloc.add(FetchTvRecommendations(1)),
+    act: (bloc) => bloc.add(const FetchTvRecommendations(1)),
     expect: () => [
       TvRecommendationsLoading(),
       TvRecommendationsHasData(tData),
@@ -62,13 +62,13 @@ void main() {
     'Should emit [Loading, Error] when get data is unsuccessful',
     build: () {
       when(mockGetTvRecommendations.execute(1))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return bloc;
     },
-    act: (bloc) => bloc.add(FetchTvRecommendations(1)),
+    act: (bloc) => bloc.add(const FetchTvRecommendations(1)),
     expect: () => [
       TvRecommendationsLoading(),
-      TvRecommendationsError('Server Failure'),
+      const TvRecommendationsError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetTvRecommendations.execute(1));

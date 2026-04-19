@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 class PopularTvsPage extends StatefulWidget {
   static const ROUTE_NAME = '/popular-tv';
 
+  const PopularTvsPage({super.key});
+
   @override
   _PopularTvsPageState createState() => _PopularTvsPageState();
 }
@@ -23,14 +25,14 @@ class _PopularTvsPageState extends State<PopularTvsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Popular TV Series'),
+        title: const Text('Popular TV Series'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: BlocBuilder<PopularTvsBloc, PopularTvsState>(
           builder: (context, state) {
             if (state is PopularTvsLoading) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else if (state is PopularTvsHasData) {
@@ -43,7 +45,7 @@ class _PopularTvsPageState extends State<PopularTvsPage> {
               );
             } else if (state is PopularTvsError) {
               return Center(
-                key: Key('error_message'),
+                key: const Key('error_message'),
                 child: Text(state.message),
               );
             } else {

@@ -17,6 +17,8 @@ import 'package:flutter/material.dart';
 class HomeTvPage extends StatefulWidget {
   static const ROUTE_NAME = '/home-tv';
 
+  const HomeTvPage({super.key});
+
   @override
   _HomeTvPageState createState() => _HomeTvPageState();
 }
@@ -40,32 +42,32 @@ class _HomeTvPageState extends State<HomeTvPage> {
           children: [
             UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/circle-g.png'),
+                backgroundImage: const AssetImage('assets/circle-g.png'),
                 backgroundColor: Colors.grey.shade900,
               ),
-              accountName: Text('Ditonton'),
-              accountEmail: Text('ditonton@dicoding.com'),
+              accountName: const Text('Ditonton'),
+              accountEmail: const Text('ditonton@dicoding.com'),
               decoration: BoxDecoration(
                 color: Colors.grey.shade900,
               ),
             ),
             ListTile(
-              leading: Icon(Icons.movie),
-              title: Text('Movies'),
+              leading: const Icon(Icons.movie),
+              title: const Text('Movies'),
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/home');
               },
             ),
             ListTile(
-              leading: Icon(Icons.tv),
-              title: Text('TV Series'),
+              leading: const Icon(Icons.tv),
+              title: const Text('TV Series'),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.save_alt),
-              title: Text('Watchlist'),
+              leading: const Icon(Icons.save_alt),
+              title: const Text('Watchlist'),
               onTap: () {
                 Navigator.pushNamed(context, '/watchlist');
               },
@@ -74,20 +76,20 @@ class _HomeTvPageState extends State<HomeTvPage> {
               onTap: () {
                 Navigator.pushNamed(context, '/about');
               },
-              leading: Icon(Icons.info_outline),
-              title: Text('About'),
+              leading: const Icon(Icons.info_outline),
+              title: const Text('About'),
             ),
           ],
         ),
       ),
       appBar: AppBar(
-        title: Text('TV Series'),
+        title: const Text('TV Series'),
         actions: [
           IconButton(
             onPressed: () {
               Navigator.pushNamed(context, SearchTvPage.ROUTE_NAME);
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           )
         ],
       ),
@@ -103,13 +105,13 @@ class _HomeTvPageState extends State<HomeTvPage> {
               ),
               BlocBuilder<NowPlayingTvsBloc, NowPlayingTvsState>(builder: (context, state) {
                 if (state is NowPlayingTvsLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is NowPlayingTvsHasData) {
                   return TvList(state.result);
                 } else {
-                  return Text('Failed');
+                  return const Text('Failed');
                 }
               }),
               _buildSubHeading(
@@ -119,13 +121,13 @@ class _HomeTvPageState extends State<HomeTvPage> {
               ),
               BlocBuilder<PopularTvsBloc, PopularTvsState>(builder: (context, state) {
                 if (state is PopularTvsLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is PopularTvsHasData) {
                   return TvList(state.result);
                 } else {
-                  return Text('Failed');
+                  return const Text('Failed');
                 }
               }),
               _buildSubHeading(
@@ -135,13 +137,13 @@ class _HomeTvPageState extends State<HomeTvPage> {
               ),
               BlocBuilder<TopRatedTvsBloc, TopRatedTvsState>(builder: (context, state) {
                 if (state is TopRatedTvsLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is TopRatedTvsHasData) {
                   return TvList(state.result);
                 } else {
-                  return Text('Failed');
+                  return const Text('Failed');
                 }
               }),
             ],
@@ -161,8 +163,8 @@ class _HomeTvPageState extends State<HomeTvPage> {
         ),
         InkWell(
           onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Row(
               children: [Text('See More'), Icon(Icons.arrow_forward_ios)],
             ),
@@ -176,11 +178,11 @@ class _HomeTvPageState extends State<HomeTvPage> {
 class TvList extends StatelessWidget {
   final List<Tv> tvs;
 
-  TvList(this.tvs);
+  const TvList(this.tvs, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -197,13 +199,13 @@ class TvList extends StatelessWidget {
                 );
               },
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
                 child: CachedNetworkImage(
                   imageUrl: '$BASE_IMAGE_URL${tv.posterPath}',
-                  placeholder: (context, url) => Center(
+                  placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),

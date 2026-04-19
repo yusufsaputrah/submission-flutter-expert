@@ -81,10 +81,12 @@ void main() async {
   }
 
   debugPrint('Running app...');
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -114,7 +116,7 @@ class MyApp extends StatelessWidget {
           textTheme: kTextTheme,
           drawerTheme: kDrawerTheme,
         ),
-        home: HomeMoviePage(),
+        home: const HomeMoviePage(),
         navigatorObservers: [
           routeObserver,
           if (isFirebaseInitialized) FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
@@ -122,11 +124,11 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
             case '/home':
-              return MaterialPageRoute(builder: (_) => HomeMoviePage());
+              return MaterialPageRoute(builder: (_) => const HomeMoviePage());
             case PopularMoviesPage.ROUTE_NAME:
-              return CupertinoPageRoute(builder: (_) => PopularMoviesPage());
+              return CupertinoPageRoute(builder: (_) => const PopularMoviesPage());
             case TopRatedMoviesPage.ROUTE_NAME:
-              return CupertinoPageRoute(builder: (_) => TopRatedMoviesPage());
+              return CupertinoPageRoute(builder: (_) => const TopRatedMoviesPage());
             case MovieDetailPage.ROUTE_NAME:
               final id = settings.arguments as int;
               return MaterialPageRoute(
@@ -134,17 +136,17 @@ class MyApp extends StatelessWidget {
                 settings: settings,
               );
             case SearchPage.ROUTE_NAME:
-              return CupertinoPageRoute(builder: (_) => SearchPage());
+              return CupertinoPageRoute(builder: (_) => const SearchPage());
             case WatchlistPage.ROUTE_NAME:
-              return MaterialPageRoute(builder: (_) => WatchlistPage());
+              return MaterialPageRoute(builder: (_) => const WatchlistPage());
             case AboutPage.ROUTE_NAME:
-              return MaterialPageRoute(builder: (_) => AboutPage());
+              return MaterialPageRoute(builder: (_) => const AboutPage());
             case HomeTvPage.ROUTE_NAME:
-              return MaterialPageRoute(builder: (_) => HomeTvPage());
+              return MaterialPageRoute(builder: (_) => const HomeTvPage());
             case PopularTvsPage.ROUTE_NAME:
-              return CupertinoPageRoute(builder: (_) => PopularTvsPage());
+              return CupertinoPageRoute(builder: (_) => const PopularTvsPage());
             case TopRatedTvsPage.ROUTE_NAME:
-              return CupertinoPageRoute(builder: (_) => TopRatedTvsPage());
+              return CupertinoPageRoute(builder: (_) => const TopRatedTvsPage());
             case TvDetailPage.ROUTE_NAME:
               final id = settings.arguments as int;
               return MaterialPageRoute(
@@ -152,11 +154,11 @@ class MyApp extends StatelessWidget {
                 settings: settings,
               );
             case SearchTvPage.ROUTE_NAME:
-              return CupertinoPageRoute(builder: (_) => SearchTvPage());
+              return CupertinoPageRoute(builder: (_) => const SearchTvPage());
 
             default:
               return MaterialPageRoute(builder: (_) {
-                return Scaffold(
+                return const Scaffold(
                   body: Center(
                     child: Text('Page not found :('),
                   ),

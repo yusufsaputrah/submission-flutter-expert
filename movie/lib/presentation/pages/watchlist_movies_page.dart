@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 class WatchlistMoviesPage extends StatefulWidget {
   static const ROUTE_NAME = '/watchlist-movie';
 
+  const WatchlistMoviesPage({super.key});
+
   @override
   _WatchlistMoviesPageState createState() => _WatchlistMoviesPageState();
 }
@@ -27,6 +29,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
     routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
+  @override
   void didPopNext() {
     context.read<WatchlistMovieBloc>().add(FetchWatchlistMovies());
   }
@@ -38,7 +41,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
       child: BlocBuilder<WatchlistMovieBloc, WatchlistMovieState>(
         builder: (context, state) {
           if (state is WatchlistMovieLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (state is WatchlistMovieHasData) {
@@ -51,11 +54,11 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
             );
           } else if (state is WatchlistMovieError) {
             return Center(
-              key: Key('error_message'),
+              key: const Key('error_message'),
               child: Text(state.message),
             );
           } else {
-            return Center(
+            return const Center(
               key: Key('error_message'),
               child: Text('Empty'),
             );

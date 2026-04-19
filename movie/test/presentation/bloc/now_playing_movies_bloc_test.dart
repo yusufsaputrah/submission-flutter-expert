@@ -22,7 +22,7 @@ void main() {
     bloc = NowPlayingMoviesBloc(mockGetNowPlayingMovies);
   });
 
-  final tMovie = Movie(
+  const tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -64,13 +64,13 @@ void main() {
     'Should emit [Loading, Error] when get data is unsuccessful',
     build: () {
       when(mockGetNowPlayingMovies.execute())
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return bloc;
     },
     act: (bloc) => bloc.add(FetchNowPlayingMovies()),
     expect: () => [
       NowPlayingMoviesLoading(),
-      NowPlayingMoviesError('Server Failure'),
+      const NowPlayingMoviesError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetNowPlayingMovies.execute());

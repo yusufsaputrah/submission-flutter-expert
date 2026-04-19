@@ -8,7 +8,7 @@ class Season extends Equatable {
   final String name;
   final String overview;
 
-  Season({
+  const Season({
     required this.id,
     required this.posterPath,
     required this.seasonNumber,

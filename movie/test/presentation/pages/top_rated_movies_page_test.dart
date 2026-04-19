@@ -26,7 +26,7 @@ void main() {
     mockBloc = MockTopRatedMoviesBloc();
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return BlocProvider<TopRatedMoviesBloc>.value(
       value: mockBloc,
       child: MaterialApp(
@@ -38,7 +38,7 @@ void main() {
   testWidgets('Page should display progress indicator when loading', (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(TopRatedMoviesLoading());
 
-    await tester.pumpWidget(_makeTestableWidget(TopRatedMoviesPage()));
+    await tester.pumpWidget(makeTestableWidget(const TopRatedMoviesPage()));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });

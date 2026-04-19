@@ -11,7 +11,7 @@ abstract class MovieRecommendationsEvent extends Equatable {
 }
 class FetchMovieRecommendations extends MovieRecommendationsEvent {
   final int id;
-  FetchMovieRecommendations(this.id);
+  const FetchMovieRecommendations(this.id);
   @override
   List<Object> get props => [id];
 }
@@ -26,13 +26,13 @@ class MovieRecommendationsEmpty extends MovieRecommendationsState {}
 class MovieRecommendationsLoading extends MovieRecommendationsState {}
 class MovieRecommendationsError extends MovieRecommendationsState {
   final String message;
-  MovieRecommendationsError(this.message);
+  const MovieRecommendationsError(this.message);
   @override
   List<Object> get props => [message];
 }
 class MovieRecommendationsHasData extends MovieRecommendationsState {
   final List<Movie> result;
-  MovieRecommendationsHasData(this.result);
+  const MovieRecommendationsHasData(this.result);
   @override
   List<Object> get props => [result];
 }

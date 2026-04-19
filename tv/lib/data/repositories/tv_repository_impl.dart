@@ -25,12 +25,12 @@ class TvRepositoryImpl implements TvRepository {
       final result = await remoteDataSource.getNowPlayingTvs();
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the network'));
     } catch(e) {
       if (e.toString().contains("HandshakeException") || e.toString().contains("Cert")) {
-        return Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
+        return const Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
       }
       return Left(ServerFailure(e.toString()));
     }
@@ -42,12 +42,12 @@ class TvRepositoryImpl implements TvRepository {
       final result = await remoteDataSource.getTvDetail(id);
       return Right(result.toEntity());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the network'));
     } catch(e) {
       if (e.toString().contains("HandshakeException") || e.toString().contains("Cert")) {
-        return Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
+        return const Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
       }
       return Left(ServerFailure(e.toString()));
     }
@@ -59,12 +59,12 @@ class TvRepositoryImpl implements TvRepository {
       final result = await remoteDataSource.getTvRecommendations(id);
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the network'));
     } catch(e) {
       if (e.toString().contains("HandshakeException") || e.toString().contains("Cert")) {
-        return Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
+        return const Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
       }
       return Left(ServerFailure(e.toString()));
     }
@@ -76,12 +76,12 @@ class TvRepositoryImpl implements TvRepository {
       final result = await remoteDataSource.getPopularTvs();
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the network'));
     } catch(e) {
       if (e.toString().contains("HandshakeException") || e.toString().contains("Cert")) {
-        return Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
+        return const Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
       }
       return Left(ServerFailure(e.toString()));
     }
@@ -93,12 +93,12 @@ class TvRepositoryImpl implements TvRepository {
       final result = await remoteDataSource.getTopRatedTvs();
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the network'));
     } catch(e) {
       if (e.toString().contains("HandshakeException") || e.toString().contains("Cert")) {
-        return Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
+        return const Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
       }
       return Left(ServerFailure(e.toString()));
     }
@@ -110,12 +110,12 @@ class TvRepositoryImpl implements TvRepository {
       final result = await remoteDataSource.searchTvs(query);
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the network'));
     } catch(e) {
       if (e.toString().contains("HandshakeException") || e.toString().contains("Cert")) {
-        return Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
+        return const Left(ConnectionFailure('CERTIFICATE_VERIFY_FAILED'));
       }
       return Left(ServerFailure(e.toString()));
     }
@@ -130,7 +130,7 @@ class TvRepositoryImpl implements TvRepository {
     } on DatabaseException catch (e) {
       return Left(DatabaseFailure(e.message));
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 

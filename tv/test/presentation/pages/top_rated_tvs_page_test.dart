@@ -16,7 +16,7 @@ void main() {
     mockBloc = MockTopRatedTvsBloc();
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return BlocProvider<TopRatedTvsBloc>.value(
       value: mockBloc,
       child: MaterialApp(
@@ -25,7 +25,7 @@ void main() {
     );
   }
 
-  final tTv = Tv(
+  const tTv = Tv(
     backdropPath: '/muth43uS2uzv03nmbQYQZ2olmG.jpg',
     genreIds: [14, 28],
     id: 531219,
@@ -43,7 +43,7 @@ void main() {
   testWidgets('Page should display center progress indicator when loading', (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(TopRatedTvsLoading());
 
-    await tester.pumpWidget(_makeTestableWidget(TopRatedTvsPage()));
+    await tester.pumpWidget(makeTestableWidget(const TopRatedTvsPage()));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
@@ -51,15 +51,15 @@ void main() {
   testWidgets('Page should display ListView when data is loaded', (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(TopRatedTvsHasData(tTvList));
 
-    await tester.pumpWidget(_makeTestableWidget(TopRatedTvsPage()));
+    await tester.pumpWidget(makeTestableWidget(const TopRatedTvsPage()));
 
     expect(find.byType(ListView), findsOneWidget);
   });
 
   testWidgets('Page should display error message when error', (WidgetTester tester) async {
-    when(() => mockBloc.state).thenReturn(TopRatedTvsError('Error message'));
+    when(() => mockBloc.state).thenReturn(const TopRatedTvsError('Error message'));
 
-    await tester.pumpWidget(_makeTestableWidget(TopRatedTvsPage()));
+    await tester.pumpWidget(makeTestableWidget(const TopRatedTvsPage()));
 
     expect(find.text('Error message'), findsOneWidget);
   });

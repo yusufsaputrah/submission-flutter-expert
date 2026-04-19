@@ -35,7 +35,7 @@ void main() {
     mockWatchlistMovieBloc = MockWatchlistMovieBloc();
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return MultiBlocProvider(
       providers: [
         BlocProvider<MovieDetailBloc>.value(value: mockMovieDetailBloc),
@@ -51,9 +51,9 @@ void main() {
   testWidgets('Watchlist button should display add icon when movie not added to watchlist', (WidgetTester tester) async {
     when(() => mockMovieDetailBloc.state).thenReturn(MovieDetailLoading());
     when(() => mockMovieRecommendationsBloc.state).thenReturn(MovieRecommendationsLoading());
-    when(() => mockWatchlistMovieBloc.state).thenReturn(WatchlistMovieStatusLoaded(false));
+    when(() => mockWatchlistMovieBloc.state).thenReturn(const WatchlistMovieStatusLoaded(false));
 
-    await tester.pumpWidget(_makeTestableWidget(MovieDetailPage(id: 1)));
+    await tester.pumpWidget(makeTestableWidget(const MovieDetailPage(id: 1)));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });

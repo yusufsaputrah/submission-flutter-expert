@@ -11,7 +11,7 @@ abstract class SearchMoviesEvent extends Equatable {
 }
 class FetchSearchMovies extends SearchMoviesEvent {
   final String query;
-  FetchSearchMovies(this.query);
+  const FetchSearchMovies(this.query);
   @override
   List<Object> get props => [query];
 }
@@ -26,13 +26,13 @@ class SearchMoviesEmpty extends SearchMoviesState {}
 class SearchMoviesLoading extends SearchMoviesState {}
 class SearchMoviesError extends SearchMoviesState {
   final String message;
-  SearchMoviesError(this.message);
+  const SearchMoviesError(this.message);
   @override
   List<Object> get props => [message];
 }
 class SearchMoviesHasData extends SearchMoviesState {
   final List<Movie> result;
-  SearchMoviesHasData(this.result);
+  const SearchMoviesHasData(this.result);
   @override
   List<Object> get props => [result];
 }

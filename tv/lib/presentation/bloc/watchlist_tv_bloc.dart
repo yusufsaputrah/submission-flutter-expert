@@ -17,21 +17,21 @@ class FetchWatchlistTvs extends WatchlistTvEvent {}
 
 class LoadWatchlistTvStatus extends WatchlistTvEvent {
   final int id;
-  LoadWatchlistTvStatus(this.id);
+  const LoadWatchlistTvStatus(this.id);
   @override
   List<Object> get props => [id];
 }
 
 class AddTvToWatchlist extends WatchlistTvEvent {
   final TvDetail tv;
-  AddTvToWatchlist(this.tv);
+  const AddTvToWatchlist(this.tv);
   @override
   List<Object> get props => [tv];
 }
 
 class RemoveTvFromWatchlist extends WatchlistTvEvent {
   final TvDetail tv;
-  RemoveTvFromWatchlist(this.tv);
+  const RemoveTvFromWatchlist(this.tv);
   @override
   List<Object> get props => [tv];
 }
@@ -47,28 +47,28 @@ class WatchlistTvLoading extends WatchlistTvState {}
 
 class WatchlistTvError extends WatchlistTvState {
   final String message;
-  WatchlistTvError(this.message);
+  const WatchlistTvError(this.message);
   @override
   List<Object> get props => [message];
 }
 
 class WatchlistTvHasData extends WatchlistTvState {
   final List<Tv> result;
-  WatchlistTvHasData(this.result);
+  const WatchlistTvHasData(this.result);
   @override
   List<Object> get props => [result];
 }
 
 class WatchlistTvStatusLoaded extends WatchlistTvState {
   final bool isAdded;
-  WatchlistTvStatusLoaded(this.isAdded);
+  const WatchlistTvStatusLoaded(this.isAdded);
   @override
   List<Object> get props => [isAdded];
 }
 
 class WatchlistTvMessage extends WatchlistTvState {
   final String message;
-  WatchlistTvMessage(this.message);
+  const WatchlistTvMessage(this.message);
   @override
   List<Object> get props => [message];
 }

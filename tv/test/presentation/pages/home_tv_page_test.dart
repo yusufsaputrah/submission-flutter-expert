@@ -24,7 +24,7 @@ void main() {
     mockTopRatedBloc = MockTopRatedTvsBloc();
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return MultiBlocProvider(
       providers: [
         BlocProvider<NowPlayingTvsBloc>.value(value: mockNowPlayingBloc),
@@ -37,7 +37,7 @@ void main() {
     );
   }
 
-  final tTv = Tv(
+  const tTv = Tv(
     backdropPath: '/muth43uS2uzv03nmbQYQZ2olmG.jpg',
     genreIds: [14, 28],
     id: 531219,
@@ -57,7 +57,7 @@ void main() {
     when(() => mockPopularBloc.state).thenReturn(PopularTvsLoading());
     when(() => mockTopRatedBloc.state).thenReturn(TopRatedTvsLoading());
 
-    await tester.pumpWidget(_makeTestableWidget(HomeTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const HomeTvPage()));
 
     expect(find.byType(CircularProgressIndicator), findsWidgets);
   });
@@ -67,17 +67,17 @@ void main() {
     when(() => mockPopularBloc.state).thenReturn(PopularTvsHasData(tTvList));
     when(() => mockTopRatedBloc.state).thenReturn(TopRatedTvsHasData(tTvList));
 
-    await tester.pumpWidget(_makeTestableWidget(HomeTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const HomeTvPage()));
 
     expect(find.byType(ListView), findsWidgets);
   });
 
   testWidgets('Page should display error message when failed', (WidgetTester tester) async {
-    when(() => mockNowPlayingBloc.state).thenReturn(NowPlayingTvsError('Failed'));
-    when(() => mockPopularBloc.state).thenReturn(PopularTvsError('Failed'));
-    when(() => mockTopRatedBloc.state).thenReturn(TopRatedTvsError('Failed'));
+    when(() => mockNowPlayingBloc.state).thenReturn(const NowPlayingTvsError('Failed'));
+    when(() => mockPopularBloc.state).thenReturn(const PopularTvsError('Failed'));
+    when(() => mockTopRatedBloc.state).thenReturn(const TopRatedTvsError('Failed'));
 
-    await tester.pumpWidget(_makeTestableWidget(HomeTvPage()));
+    await tester.pumpWidget(makeTestableWidget(const HomeTvPage()));
 
     expect(find.text('Failed'), findsWidgets);
   });

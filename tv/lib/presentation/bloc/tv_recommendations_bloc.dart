@@ -11,7 +11,7 @@ abstract class TvRecommendationsEvent extends Equatable {
 }
 class FetchTvRecommendations extends TvRecommendationsEvent {
   final int id;
-  FetchTvRecommendations(this.id);
+  const FetchTvRecommendations(this.id);
   @override
   List<Object> get props => [id];
 }
@@ -26,13 +26,13 @@ class TvRecommendationsEmpty extends TvRecommendationsState {}
 class TvRecommendationsLoading extends TvRecommendationsState {}
 class TvRecommendationsError extends TvRecommendationsState {
   final String message;
-  TvRecommendationsError(this.message);
+  const TvRecommendationsError(this.message);
   @override
   List<Object> get props => [message];
 }
 class TvRecommendationsHasData extends TvRecommendationsState {
   final List<Tv> result;
-  TvRecommendationsHasData(this.result);
+  const TvRecommendationsHasData(this.result);
   @override
   List<Object> get props => [result];
 }

@@ -21,7 +21,7 @@ void main() {
     bloc = TvDetailBloc(mockGetTvDetail);
   });
 
-  final tData = TvDetail(
+  const tData = TvDetail(
     backdropPath: 'backdropPath',
     genres: [],
     id: 1,
@@ -43,13 +43,13 @@ void main() {
     'Should emit [Loading, HasData] when data is gotten successfully',
     build: () {
       when(mockGetTvDetail.execute(1))
-          .thenAnswer((_) async => Right(tData));
+          .thenAnswer((_) async => const Right(tData));
       return bloc;
     },
-    act: (bloc) => bloc.add(FetchTvDetail(1)),
+    act: (bloc) => bloc.add(const FetchTvDetail(1)),
     expect: () => [
       TvDetailLoading(),
-      TvDetailHasData(tData),
+      const TvDetailHasData(tData),
     ],
     verify: (bloc) {
       verify(mockGetTvDetail.execute(1));
@@ -60,13 +60,13 @@ void main() {
     'Should emit [Loading, Error] when get data is unsuccessful',
     build: () {
       when(mockGetTvDetail.execute(1))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return bloc;
     },
-    act: (bloc) => bloc.add(FetchTvDetail(1)),
+    act: (bloc) => bloc.add(const FetchTvDetail(1)),
     expect: () => [
       TvDetailLoading(),
-      TvDetailError('Server Failure'),
+      const TvDetailError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetTvDetail.execute(1));

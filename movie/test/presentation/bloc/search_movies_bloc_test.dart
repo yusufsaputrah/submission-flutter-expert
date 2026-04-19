@@ -22,7 +22,7 @@ void main() {
     bloc = SearchMoviesBloc(mockSearchMovies);
   });
 
-  final tMovie = Movie(
+  const tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -50,7 +50,7 @@ void main() {
           .thenAnswer((_) async => Right(tData));
       return bloc;
     },
-    act: (bloc) => bloc.add(FetchSearchMovies('spiderman')),
+    act: (bloc) => bloc.add(const FetchSearchMovies('spiderman')),
     expect: () => [
       SearchMoviesLoading(),
       SearchMoviesHasData(tData),
@@ -64,13 +64,13 @@ void main() {
     'Should emit [Loading, Error] when get data is unsuccessful',
     build: () {
       when(mockSearchMovies.execute('spiderman'))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return bloc;
     },
-    act: (bloc) => bloc.add(FetchSearchMovies('spiderman')),
+    act: (bloc) => bloc.add(const FetchSearchMovies('spiderman')),
     expect: () => [
       SearchMoviesLoading(),
-      SearchMoviesError('Server Failure'),
+      const SearchMoviesError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockSearchMovies.execute('spiderman'));

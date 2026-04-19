@@ -16,7 +16,7 @@ void main() {
     mockBloc = MockSearchMoviesBloc();
   });
 
-  Widget _makeTestableWidget(Widget body) {
+  Widget makeTestableWidget(Widget body) {
     return BlocProvider<SearchMoviesBloc>.value(
       value: mockBloc,
       child: MaterialApp(
@@ -25,7 +25,7 @@ void main() {
     );
   }
 
-  final tMovieModel = Movie(
+  const tMovieModel = Movie(
     adult: false,
     backdropPath: '/muth43uS2uzv03nmbQYQZ2olmG.jpg',
     genreIds: [14, 28],
@@ -46,7 +46,7 @@ void main() {
   testWidgets('Page should display center progress indicator when loading', (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(SearchMoviesLoading());
 
-    await tester.pumpWidget(_makeTestableWidget(SearchPage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchPage()));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
@@ -54,15 +54,15 @@ void main() {
   testWidgets('Page should display ListView when data is loaded', (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(SearchMoviesHasData(tMovieList));
 
-    await tester.pumpWidget(_makeTestableWidget(SearchPage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchPage()));
 
     expect(find.byType(ListView), findsOneWidget);
   });
 
   testWidgets('Page should display error message when error', (WidgetTester tester) async {
-    when(() => mockBloc.state).thenReturn(SearchMoviesError('Error message'));
+    when(() => mockBloc.state).thenReturn(const SearchMoviesError('Error message'));
 
-    await tester.pumpWidget(_makeTestableWidget(SearchPage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchPage()));
 
     expect(find.text('Error message'), findsOneWidget);
   });
@@ -70,7 +70,7 @@ void main() {
   testWidgets('Page should display empty container when state is empty', (WidgetTester tester) async {
     when(() => mockBloc.state).thenReturn(SearchMoviesEmpty());
 
-    await tester.pumpWidget(_makeTestableWidget(SearchPage()));
+    await tester.pumpWidget(makeTestableWidget(const SearchPage()));
 
     expect(find.byType(Container), findsWidgets);
   });

@@ -22,13 +22,13 @@ class NowPlayingTvsEmpty extends NowPlayingTvsState {}
 class NowPlayingTvsLoading extends NowPlayingTvsState {}
 class NowPlayingTvsError extends NowPlayingTvsState {
   final String message;
-  NowPlayingTvsError(this.message);
+  const NowPlayingTvsError(this.message);
   @override
   List<Object> get props => [message];
 }
 class NowPlayingTvsHasData extends NowPlayingTvsState {
   final List<Tv> result;
-  NowPlayingTvsHasData(this.result);
+  const NowPlayingTvsHasData(this.result);
   @override
   List<Object> get props => [result];
 }

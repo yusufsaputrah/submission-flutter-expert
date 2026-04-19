@@ -11,7 +11,7 @@ abstract class MovieDetailEvent extends Equatable {
 }
 class FetchMovieDetail extends MovieDetailEvent {
   final int id;
-  FetchMovieDetail(this.id);
+  const FetchMovieDetail(this.id);
   @override
   List<Object> get props => [id];
 }
@@ -26,13 +26,13 @@ class MovieDetailEmpty extends MovieDetailState {}
 class MovieDetailLoading extends MovieDetailState {}
 class MovieDetailError extends MovieDetailState {
   final String message;
-  MovieDetailError(this.message);
+  const MovieDetailError(this.message);
   @override
   List<Object> get props => [message];
 }
 class MovieDetailHasData extends MovieDetailState {
   final MovieDetail result;
-  MovieDetailHasData(this.result);
+  const MovieDetailHasData(this.result);
   @override
   List<Object> get props => [result];
 }

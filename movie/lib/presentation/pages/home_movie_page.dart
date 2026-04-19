@@ -17,6 +17,8 @@ import 'package:flutter/material.dart';
 
 
 class HomeMoviePage extends StatefulWidget {
+  const HomeMoviePage({super.key});
+
   @override
   _HomeMoviePageState createState() => _HomeMoviePageState();
 }
@@ -40,32 +42,32 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
           children: [
             UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/circle-g.png'),
+                backgroundImage: const AssetImage('assets/circle-g.png'),
                 backgroundColor: Colors.grey.shade900,
               ),
-              accountName: Text('Ditonton'),
-              accountEmail: Text('ditonton@dicoding.com'),
+              accountName: const Text('Ditonton'),
+              accountEmail: const Text('ditonton@dicoding.com'),
               decoration: BoxDecoration(
                 color: Colors.grey.shade900,
               ),
             ),
             ListTile(
-              leading: Icon(Icons.movie),
-              title: Text('Movies'),
+              leading: const Icon(Icons.movie),
+              title: const Text('Movies'),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.tv),
-              title: Text('TV Series'),
+              leading: const Icon(Icons.tv),
+              title: const Text('TV Series'),
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/home-tv');
               },
             ),
             ListTile(
-              leading: Icon(Icons.save_alt),
-              title: Text('Watchlist'),
+              leading: const Icon(Icons.save_alt),
+              title: const Text('Watchlist'),
               onTap: () {
                 Navigator.pushNamed(context, '/watchlist');
               },
@@ -74,14 +76,14 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               onTap: () {
                 Navigator.pushNamed(context, '/about');
               },
-              leading: Icon(Icons.info_outline),
-              title: Text('About'),
+              leading: const Icon(Icons.info_outline),
+              title: const Text('About'),
             ),
           ],
         ),
       ),
       appBar: AppBar(
-        title: Text('Ditonton'),
+        title: const Text('Ditonton'),
         actions: [
           /*
           IconButton(
@@ -95,7 +97,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
             onPressed: () {
               Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           )
         ],
       ),
@@ -111,13 +113,13 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               ),
               BlocBuilder<NowPlayingMoviesBloc, NowPlayingMoviesState>(builder: (context, state) {
                 if (state is NowPlayingMoviesLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is NowPlayingMoviesHasData) {
                   return MovieList(state.result);
                 } else {
-                  return Text('Failed');
+                  return const Text('Failed');
                 }
               }),
               _buildSubHeading(
@@ -127,13 +129,13 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               ),
               BlocBuilder<PopularMoviesBloc, PopularMoviesState>(builder: (context, state) {
                 if (state is PopularMoviesLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is PopularMoviesHasData) {
                   return MovieList(state.result);
                 } else {
-                  return Text('Failed');
+                  return const Text('Failed');
                 }
               }),
               _buildSubHeading(
@@ -143,13 +145,13 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               ),
               BlocBuilder<TopRatedMoviesBloc, TopRatedMoviesState>(builder: (context, state) {
                 if (state is TopRatedMoviesLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is TopRatedMoviesHasData) {
                   return MovieList(state.result);
                 } else {
-                  return Text('Failed');
+                  return const Text('Failed');
                 }
               }),
             ],
@@ -169,8 +171,8 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         ),
         InkWell(
           onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Row(
               children: [Text('See More'), Icon(Icons.arrow_forward_ios)],
             ),
@@ -184,11 +186,11 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
 class MovieList extends StatelessWidget {
   final List<Movie> movies;
 
-  MovieList(this.movies);
+  const MovieList(this.movies, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -205,13 +207,13 @@ class MovieList extends StatelessWidget {
                 );
               },
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
                 child: CachedNetworkImage(
                   imageUrl: '$BASE_IMAGE_URL${movie.posterPath}',
-                  placeholder: (context, url) => Center(
+                  placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),

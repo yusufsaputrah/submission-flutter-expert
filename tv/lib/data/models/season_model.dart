@@ -9,7 +9,7 @@ class SeasonModel extends Equatable {
   final String name;
   final String overview;
 
-  SeasonModel({
+  const SeasonModel({
     required this.id,
     required this.posterPath,
     required this.seasonNumber,
@@ -38,12 +38,12 @@ class SeasonModel extends Equatable {
 
   Season toEntity() {
     return Season(
-      id: this.id,
-      posterPath: this.posterPath,
-      seasonNumber: this.seasonNumber,
-      episodeCount: this.episodeCount,
-      name: this.name,
-      overview: this.overview,
+      id: id,
+      posterPath: posterPath,
+      seasonNumber: seasonNumber,
+      episodeCount: episodeCount,
+      name: name,
+      overview: overview,
     );
   }
 

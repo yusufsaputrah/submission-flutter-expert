@@ -3,7 +3,7 @@ import 'package:tv/data/models/tv_detail_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final tTvDetailResponse = TvDetailResponse(
+  const tTvDetailResponse = TvDetailResponse(
     backdropPath: 'backdropPath',
     genres: [GenreModel(id: 1, name: 'Action')],
     id: 1,
