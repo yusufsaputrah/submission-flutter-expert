@@ -75,6 +75,7 @@ case $1 in
     if [ -d "coverage" ]; then
       rm -r coverage
     fi
+    mkdir -p coverage
     dirs=($(find . -maxdepth 2 -type d))
     for dir in "${dirs[@]}"; do
       runTests $dir $currentDir
