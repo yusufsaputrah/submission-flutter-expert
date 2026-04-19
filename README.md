@@ -56,7 +56,7 @@ Jika kamu menerapkan modular pada project, Anda dapat memanfaatkan berkas `test.
 
 ## Firebase Screenshots
 
-Sesuai dengan kriteria submission, lampirkan screenshot Firebase Analytics dan Crashlytics di bawah ini:
+Sesuai dengan kriteria submission, lampiran screenshot Firebase Analytics dan Crashlytics di bawah ini:
 
 ### 1. Firebase Analytics
 ![Firebase Analytics](screenshots/firebase_analytics.png)
