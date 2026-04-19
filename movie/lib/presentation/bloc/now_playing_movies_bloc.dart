@@ -1,0 +1,48 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:movie/domain/usecases/get_now_playing_movies.dart';
+import 'package:movie/domain/entities/movie.dart';
+
+
+abstract class NowPlayingMoviesEvent extends Equatable {
+  const NowPlayingMoviesEvent();
+  @override
+  List<Object> get props => [];
+}
+class FetchNowPlayingMovies extends NowPlayingMoviesEvent {
+}
+
+abstract class NowPlayingMoviesState extends Equatable {
+  const NowPlayingMoviesState();
+  @override
+  List<Object> get props => [];
+}
+
+class NowPlayingMoviesEmpty extends NowPlayingMoviesState {}
+class NowPlayingMoviesLoading extends NowPlayingMoviesState {}
+class NowPlayingMoviesError extends NowPlayingMoviesState {
+  final String message;
+  NowPlayingMoviesError(this.message);
+  @override
+  List<Object> get props => [message];
+}
+class NowPlayingMoviesHasData extends NowPlayingMoviesState {
+  final List<Movie> result;
+  NowPlayingMoviesHasData(this.result);
+  @override
+  List<Object> get props => [result];
+}
+
+class NowPlayingMoviesBloc extends Bloc<NowPlayingMoviesEvent, NowPlayingMoviesState> {
+  final GetNowPlayingMovies usecase;
+  NowPlayingMoviesBloc(this.usecase) : super(NowPlayingMoviesEmpty()) {
+    on<FetchNowPlayingMovies>((event, emit) async {
+      emit(NowPlayingMoviesLoading());
+      final result = await usecase.execute();
+      result.fold(
+        (failure) => emit(NowPlayingMoviesError(failure.message)),
+        (data) => emit(NowPlayingMoviesHasData(data)),
+      );
+    });
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "results": [
+    {
+      "backdrop_path": "/backdropPath.jpg",
+      "genre_ids": [1, 2, 3],
+      "id": 1,
+      "original_name": "originalName",
+      "overview": "overview",
+      "popularity": 1.0,
+      "poster_path": "/posterPath.jpg",
+      "first_air_date": "2020-05-05",
+      "name": "name",
+      "vote_average": 1.0,
+      "vote_count": 1
+    }
+  ]
+}

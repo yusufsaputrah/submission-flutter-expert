@@ -1,0 +1,134 @@
+00:00 +0: loading /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_local_data_source_test.dart
+test/data/datasources/movie_local_data_source_test.dart:22:47: Error: The argument type 'MovieTable' can't be assigned to the parameter type 'Map<String, dynamic>?'.
+ - 'MovieTable' is from 'package:movie/data/models/movie_table.dart' ('lib/data/models/movie_table.dart').
+ - 'Map' is from 'dart:core'.
+      when(mockDatabaseHelper.insertWatchlist(testMovieTable))
+                                              ^
+test/data/datasources/movie_local_data_source_test.dart:33:47: Error: The argument type 'MovieTable' can't be assigned to the parameter type 'Map<String, dynamic>?'.
+ - 'MovieTable' is from 'package:movie/data/models/movie_table.dart' ('lib/data/models/movie_table.dart').
+ - 'Map' is from 'dart:core'.
+      when(mockDatabaseHelper.insertWatchlist(testMovieTable))
+                                              ^
+test/data/datasources/movie_local_data_source_test.dart:46:47: Error: The argument type 'MovieTable' can't be assigned to the parameter type 'Map<String, dynamic>?'.
+ - 'MovieTable' is from 'package:movie/data/models/movie_table.dart' ('lib/data/models/movie_table.dart').
+ - 'Map' is from 'dart:core'.
+      when(mockDatabaseHelper.removeWatchlist(testMovieTable))
+                                              ^
+test/data/datasources/movie_local_data_source_test.dart:57:47: Error: The argument type 'MovieTable' can't be assigned to the parameter type 'Map<String, dynamic>?'.
+ - 'MovieTable' is from 'package:movie/data/models/movie_table.dart' ('lib/data/models/movie_table.dart').
+ - 'Map' is from 'dart:core'.
+      when(mockDatabaseHelper.removeWatchlist(testMovieTable))
+                                              ^
+00:00 +0 -1: loading /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_local_data_source_test.dart [E]
+  Failed to load "/Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_local_data_source_test.dart":
+  Compilation failed for testPath=/Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_local_data_source_test.dart: test/data/datasources/movie_local_data_source_test.dart:22:47: Error: The argument type 'MovieTable' can't be assigned to the parameter type 'Map<String, dynamic>?'.
+   - 'MovieTable' is from 'package:movie/data/models/movie_table.dart' ('lib/data/models/movie_table.dart').
+   - 'Map' is from 'dart:core'.
+        when(mockDatabaseHelper.insertWatchlist(testMovieTable))
+                                                ^
+  test/data/datasources/movie_local_data_source_test.dart:33:47: Error: The argument type 'MovieTable' can't be assigned to the parameter type 'Map<String, dynamic>?'.
+   - 'MovieTable' is from 'package:movie/data/models/movie_table.dart' ('lib/data/models/movie_table.dart').
+   - 'Map' is from 'dart:core'.
+        when(mockDatabaseHelper.insertWatchlist(testMovieTable))
+                                                ^
+  test/data/datasources/movie_local_data_source_test.dart:46:47: Error: The argument type 'MovieTable' can't be assigned to the parameter type 'Map<String, dynamic>?'.
+   - 'MovieTable' is from 'package:movie/data/models/movie_table.dart' ('lib/data/models/movie_table.dart').
+   - 'Map' is from 'dart:core'.
+        when(mockDatabaseHelper.removeWatchlist(testMovieTable))
+                                                ^
+  test/data/datasources/movie_local_data_source_test.dart:57:47: Error: The argument type 'MovieTable' can't be assigned to the parameter type 'Map<String, dynamic>?'.
+   - 'MovieTable' is from 'package:movie/data/models/movie_table.dart' ('lib/data/models/movie_table.dart').
+   - 'Map' is from 'dart:core'.
+        when(mockDatabaseHelper.removeWatchlist(testMovieTable))
+                                                ^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: get Now Playing Movies should return list of Movie Model when the response code is 200
+00:00 +1 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: get Now Playing Movies should throw a ServerException when the response code is 404 or other
+00:00 +2 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: get Popular Movies should return list of movies when response is success (200)
+00:00 +3 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: get Popular Movies should throw a ServerException when the response code is 404 or other
+00:00 +4 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: get Top Rated Movies should return list of movies when response code is 200 
+00:00 +5 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: get Top Rated Movies should throw ServerException when response code is other than 200
+00:00 +6 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: get movie detail should return movie detail when the response code is 200
+00:00 +7 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: get movie detail should throw Server Exception when the response code is 404 or other
+00:00 +8 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: get movie recommendations should return list of Movie Model when the response code is 200
+00:00 +9 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: get movie recommendations should throw Server Exception when the response code is 404 or other
+00:00 +10 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: search movies should return list of movies when response code is 200
+00:00 +11 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/datasources/movie_remote_data_source_test.dart: search movies should throw ServerException when response code is other than 200
+00:00 +12 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Now Playing Movies should return remote data when the call to remote data source is successful
+00:00 +13 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/models/movie_model_test.dart: should be a subclass of Movie entity
+00:00 +14 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/models/movie_response_model_test.dart: fromJson should return a valid model from JSON
+00:00 +15 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/models/movie_response_model_test.dart: fromJson should return a valid model from JSON
+00:00 +16 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/models/movie_response_model_test.dart: fromJson should return a valid model from JSON
+00:00 +17 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Popular Movies should return movie list when call to data source is success
+00:00 +18 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Popular Movies should return server failure when call to data source is unsuccessful
+00:00 +19 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/models/movie_response_model_test.dart: toJson should return a JSON map containing proper data
+00:00 +20 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Popular Movies should return connection failure when device is not connected to the internet
+00:00 +21 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Top Rated Movies should return movie list when call to data source is successful
+00:00 +22 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Top Rated Movies should return ServerFailure when call to data source is unsuccessful
+00:00 +23 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Top Rated Movies should return ConnectionFailure when device is not connected to the internet
+00:00 +24 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Get Movie Detail should return Movie data when the call to remote data source is successful
+00:00 +25 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Get Movie Detail should return Server Failure when the call to remote data source is unsuccessful
+00:00 +26 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Get Movie Detail should return connection failure when the device is not connected to internet
+00:00 +27 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Get Movie Recommendations should return data (movie list) when the call is successful
+00:00 +28 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Get Movie Recommendations should return server failure when call to remote data source is unsuccessful
+00:00 +29 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Get Movie Recommendations should return connection failure when the device is not connected to the internet
+00:00 +30 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Seach Movies should return movie list when call to data source is successful
+00:00 +31 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Seach Movies should return ServerFailure when call to data source is unsuccessful
+00:00 +32 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: Seach Movies should return ConnectionFailure when device is not connected to the internet
+00:00 +33 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: save watchlist should return success message when saving successful
+00:00 +34 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: save watchlist should return DatabaseFailure when saving unsuccessful
+00:00 +35 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: remove watchlist should return success message when remove successful
+00:00 +36 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: remove watchlist should return DatabaseFailure when remove unsuccessful
+00:00 +37 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: get watchlist status should return watch status whether data is found
+00:00 +38 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/data/repositories/movie_repository_impl_test.dart: get watchlist movies should return list of Movies
+00:00 +39 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/domain/usecases/get_top_rated_movies_test.dart: should get list of movies from repository
+00:01 +40 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/domain/usecases/get_movie_detail_test.dart: should get movie detail from the repository
+00:01 +41 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/domain/usecases/save_watchlist_test.dart: should save movie to the repository
+00:01 +42 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/domain/usecases/get_movie_recommendations_test.dart: should get list of movie recommendations from the repository
+00:01 +43 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/domain/usecases/get_watchlist_movies_test.dart: should get list of movies from the repository
+00:01 +44 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/domain/usecases/get_now_playing_movies_test.dart: should get list of movies from the repository
+00:02 +45 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/domain/usecases/get_popular_movies_test.dart: GetPopularMovies Tests execute should get list of movies from the repository when execute function is called
+00:02 +46 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/domain/usecases/remove_watchlist_test.dart: should remove watchlist movie from repository
+00:02 +47 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/domain/usecases/search_movies_test.dart: should get list of movies from the repository
+00:02 +48 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/domain/usecases/get_watchlist_status_test.dart: should get watchlist status from repository
+00:02 +49 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/pages/top_rated_movies_page_test.dart: Page should display progress indicator when loading
+00:03 +50 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/pages/top_rated_movies_page_test.dart: Page should display progress indicator when loading
+00:03 +51 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/pages/top_rated_movies_page_test.dart: Page should display progress indicator when loading
+00:03 +52 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/pages/top_rated_movies_page_test.dart: Page should display progress indicator when loading
+00:03 +53 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/pages/movie_detail_page_test.dart: Watchlist button should display add icon when movie not added to watchlist
+00:03 +54 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/pages/popular_movies_page_test.dart: Page should display center progress indicator when loading
+00:03 +55 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/search_movies_bloc_test.dart: initial state should be empty
+00:03 +56 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/search_movies_bloc_test.dart: Should emit [Loading, HasData] when data is gotten successfully
+00:03 +57 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/search_movies_bloc_test.dart: Should emit [Loading, Error] when get data is unsuccessful
+00:04 +58 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/movie_detail_bloc_test.dart: initial state should be empty
+00:04 +59 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/movie_detail_bloc_test.dart: Should emit [Loading, HasData] when data is gotten successfully
+00:04 +60 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/movie_detail_bloc_test.dart: Should emit [Loading, Error] when get data is unsuccessful
+00:04 +61 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/now_playing_movies_bloc_test.dart: initial state should be empty
+00:04 +62 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/movie_recommendations_bloc_test.dart: initial state should be empty
+00:04 +63 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/now_playing_movies_bloc_test.dart: Should emit [Loading, HasData] when data is gotten successfully
+00:04 +64 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/movie_recommendations_bloc_test.dart: Should emit [Loading, HasData] when data is gotten successfully
+00:04 +65 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/movie_recommendations_bloc_test.dart: Should emit [Loading, HasData] when data is gotten successfully
+00:04 +66 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/movie_recommendations_bloc_test.dart: Should emit [Loading, Error] when get data is unsuccessful
+00:04 +67 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/top_rated_movies_bloc_test.dart: initial state should be empty
+00:04 +68 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/top_rated_movies_bloc_test.dart: Should emit [Loading, HasData] when data is gotten successfully
+00:04 +69 -1: /Users/macbookairm12020/Development-Dart/submission-awal/movie/test/presentation/bloc/top_rated_movies_bloc_test.dart: Should emit [Loading, Error] when get data is unsuccessful
+00:04 +70 -1: Some tests failed.

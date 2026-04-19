@@ -1,0 +1,48 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:tv/domain/usecases/get_now_playing_tvs.dart';
+import 'package:tv/domain/entities/tv.dart';
+
+
+abstract class NowPlayingTvsEvent extends Equatable {
+  const NowPlayingTvsEvent();
+  @override
+  List<Object> get props => [];
+}
+class FetchNowPlayingTvs extends NowPlayingTvsEvent {
+}
+
+abstract class NowPlayingTvsState extends Equatable {
+  const NowPlayingTvsState();
+  @override
+  List<Object> get props => [];
+}
+
+class NowPlayingTvsEmpty extends NowPlayingTvsState {}
+class NowPlayingTvsLoading extends NowPlayingTvsState {}
+class NowPlayingTvsError extends NowPlayingTvsState {
+  final String message;
+  NowPlayingTvsError(this.message);
+  @override
+  List<Object> get props => [message];
+}
+class NowPlayingTvsHasData extends NowPlayingTvsState {
+  final List<Tv> result;
+  NowPlayingTvsHasData(this.result);
+  @override
+  List<Object> get props => [result];
+}
+
+class NowPlayingTvsBloc extends Bloc<NowPlayingTvsEvent, NowPlayingTvsState> {
+  final GetNowPlayingTvs usecase;
+  NowPlayingTvsBloc(this.usecase) : super(NowPlayingTvsEmpty()) {
+    on<FetchNowPlayingTvs>((event, emit) async {
+      emit(NowPlayingTvsLoading());
+      final result = await usecase.execute();
+      result.fold(
+        (failure) => emit(NowPlayingTvsError(failure.message)),
+        (data) => emit(NowPlayingTvsHasData(data)),
+      );
+    });
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "backdrop_path": "/backdropPath.jpg",
+  "genres": [
+    {
+      "id": 1,
+      "name": "Action"
+    }
+  ],
+  "id": 1,
+  "original_name": "originalName",
+  "overview": "overview",
+  "poster_path": "/posterPath.jpg",
+  "first_air_date": "2020-05-05",
+  "name": "name",
+  "vote_average": 1.0,
+  "vote_count": 1
+}
