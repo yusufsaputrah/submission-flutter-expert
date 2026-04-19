@@ -28,7 +28,6 @@ import 'package:tv/domain/usecases/remove_watchlist_tv.dart';
 import 'package:tv/domain/usecases/save_watchlist_tv.dart';
 import 'package:tv/domain/usecases/search_tvs.dart';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/bloc/now_playing_movies_bloc.dart';
 import 'package:movie/presentation/bloc/popular_movies_bloc.dart';
 import 'package:movie/presentation/bloc/top_rated_movies_bloc.dart';
@@ -45,7 +44,6 @@ import 'package:tv/presentation/bloc/tv_recommendations_bloc.dart';
 import 'package:tv/presentation/bloc/search_tvs_bloc.dart';
 import 'package:tv/presentation/bloc/watchlist_tv_bloc.dart';
 
-import 'package:http/http.dart' as http;
 import 'package:core/common/ssl_pinning.dart';
 import 'package:get_it/get_it.dart';
 

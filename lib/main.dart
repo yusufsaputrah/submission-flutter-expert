@@ -6,14 +6,12 @@ import 'package:movie/presentation/pages/home_movie_page.dart';
 import 'package:movie/presentation/pages/popular_movies_page.dart';
 import 'package:movie/presentation/pages/search_page.dart';
 import 'package:movie/presentation/pages/top_rated_movies_page.dart';
-import 'package:movie/presentation/pages/watchlist_movies_page.dart';
 
 import 'package:tv/presentation/pages/home_tv_page.dart';
 import 'package:tv/presentation/pages/popular_tvs_page.dart';
 import 'package:tv/presentation/pages/search_tv_page.dart';
 import 'package:tv/presentation/pages/top_rated_tvs_page.dart';
 import 'package:tv/presentation/pages/tv_detail_page.dart';
-import 'package:tv/presentation/pages/watchlist_tvs_page.dart';
 import 'presentation/pages/watchlist_page.dart';
 
 
