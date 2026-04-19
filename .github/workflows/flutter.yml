@@ -16,8 +16,11 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.13.0'
+          flutter-version: '3.24.0'
           channel: 'stable'
+
+      - name: Install lcov
+        run: sudo apt-get update && sudo apt-get install -y lcov
 
       - name: Install root dependencies
         run: flutter pub get
@@ -25,8 +28,10 @@ jobs:
       - name: Install dependencies for all modules
         run: |
           for dir in core movie tv about; do
-            echo "Installing dependencies in $dir"
-            cd $dir && flutter pub get && cd ..
+            if [ -d "$dir" ]; then
+              echo "Installing dependencies in $dir"
+              cd $dir && flutter pub get && cd ..
+            fi
           done
 
       - name: Run Analyze

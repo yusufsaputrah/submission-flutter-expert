@@ -11,21 +11,26 @@ void main() {
     expect(result, tGenre);
   });
 
-  test('should return a JSON map containing proper data', () async {
+  test('fromJson should return a valid model from JSON', () async {
+    // arrange
+    final Map<String, dynamic> jsonMap = {
+      "id": 1,
+      "name": "Action",
+    };
+    // act
+    final result = GenreModel.fromJson(jsonMap);
+    // assert
+    expect(result, tGenreModel);
+  });
+
+  test('toJson should return a JSON map containing proper data', () async {
+    // act
     final result = tGenreModel.toJson();
+    // assert
     final expectedJsonMap = {
       "id": 1,
       "name": "Action",
     };
     expect(result, expectedJsonMap);
-  });
-
-  test('should return a valid model from JSON', () async {
-    final Map<String, dynamic> jsonMap = {
-      "id": 1,
-      "name": "Action",
-    };
-    final result = GenreModel.fromJson(jsonMap);
-    expect(result, tGenreModel);
   });
 }
