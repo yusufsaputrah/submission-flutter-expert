@@ -1,4 +1,3 @@
-import 'package:core/common/state_enum.dart';
 import 'package:core/common/utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/bloc/watchlist_movie_bloc.dart';

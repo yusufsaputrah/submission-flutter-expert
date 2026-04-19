@@ -11,7 +11,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv/presentation/bloc/now_playing_tvs_bloc.dart';
 import 'package:tv/presentation/bloc/popular_tvs_bloc.dart';
 import 'package:tv/presentation/bloc/top_rated_tvs_bloc.dart';
-import 'package:core/common/state_enum.dart';
 import 'package:flutter/material.dart';
 
 

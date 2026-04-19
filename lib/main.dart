@@ -36,8 +36,6 @@ import 'package:tv/presentation/bloc/watchlist_tv_bloc.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:ditonton/injection.dart' as di;
 import 'package:core/common/ssl_pinning.dart';
 import 'package:firebase_core/firebase_core.dart';

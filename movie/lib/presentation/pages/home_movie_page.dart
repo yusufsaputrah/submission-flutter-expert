@@ -12,7 +12,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/bloc/now_playing_movies_bloc.dart';
 import 'package:movie/presentation/bloc/popular_movies_bloc.dart';
 import 'package:movie/presentation/bloc/top_rated_movies_bloc.dart';
-import 'package:core/common/state_enum.dart';
 import 'package:flutter/material.dart';
 
 

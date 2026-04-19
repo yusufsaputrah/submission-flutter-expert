@@ -1,4 +1,3 @@
-import 'package:core/common/state_enum.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv/presentation/bloc/popular_tvs_bloc.dart';
 import 'package:tv/presentation/widgets/tv_card_list.dart';
